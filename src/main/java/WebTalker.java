@@ -56,12 +56,8 @@ public class WebTalker {
                                 .get("/userActivity/{param}", (request, response) ->
                                         response.send(db.getUserAction(Integer.parseInt(request.param("param"))).map(WebTalker::toByteBuf)
                                                 .log("http-server")))
-                                .post("/paintings", (request, response) ->
-                                        response.send(request.receive().asString()
-                                                .map(WebTalker::parsePainting)
-                                                .map(db::createPainting)
-                                                .map(WebTalker::toByteBuf)
-                                                .log("http-server")))
+                                .post("/paintings/{param}", (request, response) ->
+                                        response.sendObject(toByteBuf(db.createPainting(parsePainting(request.param("param"))))))
                                 .post("/users", (request, response) ->
                                         response.send(request.receive().asString()
                                                 .map(WebTalker::parseUser)
@@ -114,10 +110,41 @@ public class WebTalker {
         return item;
     }*/
     static Painting parsePainting(String in){
-        return null;
+        Painting painting = null;
+        try{
+            painting=OBJECT_MAPPER.readValue(in, Painting.class);
+        }catch (JsonProcessingException ex) {
+            String[] params = in.split(",");
+            int painting_id = Integer.parseInt(params[0].split("=")[1]);
+            int owner = Integer.parseInt(params[1].split("=")[1]);
+            String title = params[2].split("=")[1];
+            String url = params[3].split("=")[1];
+            String description = params[4].split("=")[1];
+            String author = params[5].split("=")[1];
+            boolean isForSale = Boolean.parseBoolean(params[6].split("=")[1]);
+            double price = Double.parseDouble(params[7].split("=")[1]);
+            painting = new Painting(painting_id, owner, title, url, description, author, isForSale, price);
+        }
+        return painting;
+
     }
     static User parseUser(String in){
-        return null;
+        User user = null;
+        try{
+            user=OBJECT_MAPPER.readValue(in, User.class);
+        }catch (JsonProcessingException ex) {
+            String[] params = in.split(",");
+            int user_id = Integer.parseInt(params[0].split("=")[1]);
+            String name = Integer.parseInt(params[1].split("=")[1]);
+            String password  = params[2].split("=")[1];
+            String url = params[3].split("=")[1];
+            String description = params[4].split("=")[1];
+            String author = params[5].split("=")[1];
+            boolean isForSale = Boolean.parseBoolean(params[6].split("=")[1]);
+            double price = Double.parseDouble(params[7].split("=")[1]);
+            user = new User(user_id, password, ;
+        }
+        return user;
     }
     static PaintingAction parsePaintingAction(String in){
         return null;
@@ -126,3 +153,9 @@ public class WebTalker {
         return null;
     }
 }
+/*.post("/paintings", (request, response) ->
+                                        response.send(request.receive().asString()
+                                                .map(WebTalker::parsePainting)
+                                                .map(db::createPainting)
+                                                .map(WebTalker::toByteBuf)
+                                                .log("http-server")))*/

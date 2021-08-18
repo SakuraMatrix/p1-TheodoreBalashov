@@ -7,13 +7,6 @@ public class DatabaseTalker {
     private CqlSession session;
     public DatabaseTalker(CqlSession session) {
         this.session = session;
-
-        SimpleStatement simp = SimpleStatement.builder("INSERT INTO paintingSeller.painting"+
-                "(painting_id, owner, title, url, description, author, isForSale, price) " +
-                "values (?, ?, ?, ?, ?, ?, ?, ?)")
-                .addPositionalValues(0, 0, "example", "url", "example", "admin",
-                        false, 100.0).build();
-        Flux.from(session.executeReactive(simp)).subscribe();
     }
     public boolean doesUsernameExist(String user){
         return true;
@@ -26,7 +19,7 @@ public class DatabaseTalker {
         SimpleStatement simp = SimpleStatement.builder("INSERT INTO paintingSeller.painting"+
                 "(painting_id, owner, title, url, description, author, isForSale, price) " +
                 "values (?, ?, ?, ?, ?, ?, ?, ?)")
-                .addPositionalValues(painting.id, painting.owner, painting.title, painting.url, painting.desc, painting.author,
+                .addPositionalValues(painting.painting_id, painting.owner, painting.title, painting.url, painting.desc, painting.author,
                         painting.isForSale, painting.price)
                 .build();
         Flux.from(session.executeReactive(simp)).subscribe();

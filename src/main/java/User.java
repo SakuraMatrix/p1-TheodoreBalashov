@@ -1,10 +1,14 @@
 public class User {
+    private int user_id;
+    private String name;
+    private
+
+
     public void setName(String name) {
         this.name = name;
     }
 
-    private String name;
-    private int user_id;
+
 
     public int getUser_id() {
         return user_id;
@@ -23,8 +27,11 @@ public class User {
     }
 
     private String password;
-    public User(int user_id, String name, String password){
+    public User(int user_id, String name, String password, double balance) {
+        this.user_id = user_id;
         this.name = name;
+        this.password = password;
+        this.balance = balance;
     }
     public String getName(){
         return name;

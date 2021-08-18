@@ -14,6 +14,7 @@ CREATE TABLE IF NOT EXISTS paintingAction (
     painting_id int,
     time timestamp,
     action text,
+    amount double;
     PRIMARY KEY (action_id)
 );
 

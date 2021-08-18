@@ -1,5 +1,5 @@
 public class Painting {
-    int id;
+    int painting_id;
     int owner;
     String title;
     String url;
@@ -9,11 +9,11 @@ public class Painting {
     boolean isForSale;
 
     public int getId() {
-        return id;
+        return painting_id;
     }
 
     public void setId(int id) {
-        this.id = id;
+        this.painting_id = id;
     }
 
     public int getOwner() {
@@ -69,7 +69,7 @@ public class Painting {
     }
 
     public Painting(int id, int owner, String title, String url, String desc, String author, boolean isForSale, double price){
-        this.id = id;
+        this.painting_id = id;
         this.owner = owner;
         this.title = title;
         this.url = url;
@@ -85,7 +85,7 @@ public class Painting {
         this.desc = desc;
     }
     public String toString(){
-        return "Painting{"+"id="+id+", owner="+owner+",title="+title+", url="+
+        return "Painting{"+"painting_id="+painting_id+", owner="+owner+",title="+title+", url="+
                 url+", desc="+desc+", author="+author+", isForSale="+isForSale+
                 ", price="+price+"}";
     }
