@@ -1,8 +1,8 @@
 public class UserAction {
-    int action_id;
-    int user_id;
-    String action;
-    double amount;
+    private int action_id;
+    private int user_id;
+    private String action;
+    private double amount;
 
     public UserAction(int action_id, int user_id, String action, double amount) {
         this.action_id = action_id;

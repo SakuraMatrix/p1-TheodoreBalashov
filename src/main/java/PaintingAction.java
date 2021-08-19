@@ -1,11 +1,12 @@
 public class PaintingAction {
+    private int action_id;
+    private int user_id;
+    private int painting_id;
+    private String action;
+    private double amount;
 
-    int user_id;
-    int painting_id;
-    String action;
-    double amount;
-
-    public PaintingAction(int user_id, int painting_id, String action, double amount) {
+    public PaintingAction(int action_id, int user_id, int painting_id, String action, double amount) {
+        this.action_id=action_id;
         this.painting_id = painting_id;
         this.user_id = user_id;
         this.action = action;
@@ -43,6 +44,14 @@ public class PaintingAction {
 
     public void setAmount(double amount) {
         this.amount = amount;
+    }
+
+    public int getAction_id() {
+        return action_id;
+    }
+
+    public void setAction_id(int action_id) {
+        this.action_id = action_id;
     }
 
     @Override

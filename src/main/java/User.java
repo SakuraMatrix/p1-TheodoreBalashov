@@ -1,8 +1,8 @@
 public class User {
     private int user_id;
     private String name;
-    private
-
+    private String password;
+    private double balance;
 
     public void setName(String name) {
         this.name = name;
@@ -26,7 +26,6 @@ public class User {
         this.password = password;
     }
 
-    private String password;
     public User(int user_id, String name, String password, double balance) {
         this.user_id = user_id;
         this.name = name;
@@ -44,5 +43,13 @@ public class User {
     }
     public boolean showInventory(){
         return true;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    public void setBalance(double balance) {
+        this.balance = balance;
     }
 }

@@ -1,13 +1,22 @@
 public class Painting {
-    int painting_id;
-    int owner;
-    String title;
-    String url;
-    String desc;
-    String author;
-    double price;
-    boolean isForSale;
-
+    private int painting_id;
+    private int owner;
+    private String title;
+    private String url;
+    private String desc;
+    private String author;
+    private double price;
+    private boolean isForSale;
+    public Painting(int id, int owner, String title, String url, String desc, String author, boolean isForSale, double price){
+        this.painting_id = id;
+        this.owner = owner;
+        this.title = title;
+        this.url = url;
+        this.desc = desc;
+        this.author = author;
+        this.isForSale = isForSale;
+        this.price = price;
+    }
     public int getId() {
         return painting_id;
     }
@@ -44,6 +53,22 @@ public class Painting {
         return desc;
     }
 
+    public void setPainting_id(int painting_id) {
+        this.painting_id = painting_id;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
+
+    public int getPainting_id() {
+        return painting_id;
+    }
+
+    public boolean isForSale() {
+        return isForSale;
+    }
+
     public String getAuthor() {
         return author;
     }
@@ -60,29 +85,12 @@ public class Painting {
         this.price = price;
     }
 
-    public boolean isForSale() {
+    public boolean getIsForSale() {
         return isForSale;
     }
 
     public void setForSale(boolean forSale) {
         isForSale = forSale;
-    }
-
-    public Painting(int id, int owner, String title, String url, String desc, String author, boolean isForSale, double price){
-        this.painting_id = id;
-        this.owner = owner;
-        this.title = title;
-        this.url = url;
-        this.desc = desc;
-        this.author = author;
-        this.isForSale = isForSale;
-        this.price = price;
-    }
-    public boolean verifyURL(){
-        return true;
-    }
-    public void setDesc(String desc){
-        this.desc = desc;
     }
     public String toString(){
         return "Painting{"+"painting_id="+painting_id+", owner="+owner+",title="+title+", url="+
