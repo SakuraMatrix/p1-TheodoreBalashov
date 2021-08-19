@@ -1,0 +1,21 @@
+# README
+This project is intended as a backend for an online artwork buying and selling site.
+Endpoints:
+Get all users
+Get single user
+Get all paintings
+Get single painting
+Get all userActions
+Get single UserAction
+Get all paintingActions
+Get single paintingAction
+Post new user
+Post new painting
+Post new userAction
+Post new paintingAction
+
+Upon the creation of a new valid userAction, a deposit or withdrawl occurs.
+Upon the creation of a new valid paintingAction, a painting is either taken on or off the market, or it is sold and its ownership transferred.
+
+# Tech Used
+Cassandra, Reactor Netty, Maven, log4j, junit, Spring
