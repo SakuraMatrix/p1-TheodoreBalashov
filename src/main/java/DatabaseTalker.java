@@ -6,6 +6,7 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 public class DatabaseTalker {
+    //todo add logging
     private CqlSession session;
     public DatabaseTalker(CqlSession session) {
 

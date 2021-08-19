@@ -11,17 +11,16 @@ CREATE TABLE IF NOT EXISTS user (
 
 CREATE TABLE IF NOT EXISTS paintingAction (
     action_id int,
+    user_id int,
     painting_id int,
-    time timestamp,
     action text,
     amount double;
     PRIMARY KEY (action_id)
 );
 
-CREATE TABLE IF NOT EXISTS accountAction (
+CREATE TABLE IF NOT EXISTS userAction (
     action_id int,
     user_id int,
-    time timestamp,
     action text,
     amount double,
     PRIMARY KEY (action_id)
