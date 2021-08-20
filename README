@@ -19,3 +19,13 @@ Upon the creation of a new valid paintingAction, a painting is either taken on o
 
 # Tech Used
 Cassandra, Reactor Netty, Maven, log4j, junit, Spring
+
+# Syntax examples:
+localhost:8080/paintingActivity
+localhost:8080/paintingActivity/1
+curl -X POST localhost:8080/user_id=201,username=artlover,password=racecar,balance=0
+curl -X POST localhost:8080/painting_id=301,owner=103,title=happysun,url=painting.jpg,desc=crayonDrawing,author=mrboots,forSale=false,price=0
+curl -X POST localhost:8080/action_id=1,user_id=101,action=deposit,amount=100
+curl -X POST localhost:8080/action_id=311,user_id=103,painting_id=3,action=putOnSale,amount=100
+curl -X POST localhost:8080/action_id=312,user_id=102,painting_id=3,action=takeOffSale,amount=100
+curl -X POST localhost:8080/action_id=312,user_id=102,painting_id=3,action=buy,amount=100
